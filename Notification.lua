@@ -31,9 +31,3 @@ descriptionLabel.TextColor3 = Color3.new(1, 1, 1)
 descriptionLabel.Parent = notificationFrame
 
 
-spawn(function()
-    wait(5)
-    if not isClosed then
-        notificationFrame:Destroy()
-    end
-end)
