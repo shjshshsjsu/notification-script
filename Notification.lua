@@ -9,24 +9,28 @@ closeButton.Size = UDim2.new(0, 20, 0, 20)
 closeButton.Position = UDim2.new(1, -25, 0, 5)
 closeButton.Text = "X"
 closeButton.Parent = notificationFrame
+local isClosed = false
+
 closeButton.MouseButton1Click:Connect(function()
+    isClosed = true
     notificationFrame:Destroy()
 end)
 
 local nameLabel = Instance.new("TextLabel")
 nameLabel.Size = UDim2.new(1, 0, 0.5, 0)
-nameLabel.Text = "Xd Lol"
+nameLabel.Text = "Bildirim Adı"
 nameLabel.TextColor3 = Color3.new(1, 1, 1)
 nameLabel.Parent = notificationFrame
 
 local descriptionLabel = Instance.new("TextLabel")
 descriptionLabel.Size = UDim2.new(1, 0, 0.5, 0)
 descriptionLabel.Position = UDim2.new(0, 0, 0.5, 0)
-descriptionLabel.Text = "Yarrami ye"
+descriptionLabel.Text = "Bildirim Açıklaması"
 descriptionLabel.TextColor3 = Color3.new(1, 1, 1)
 descriptionLabel.Parent = notificationFrame
 
 wait(5)
-if notificationFrame:IsA("Frame") then
+
+if not isClosed then
     notificationFrame:Destroy()
 end
