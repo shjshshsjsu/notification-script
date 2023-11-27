@@ -26,6 +26,7 @@ descriptionLabel.Text = "Yarrami ye"
 descriptionLabel.TextColor3 = Color3.new(1, 1, 1)
 descriptionLabel.Parent = notificationFrame
 
--- Bildirimi Silme
 wait(5)
-notificationFrame:Destroy()
+if notificationFrame:IsA("Frame") then
+    notificationFrame:Destroy()
+end
