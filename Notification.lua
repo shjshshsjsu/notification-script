@@ -1,3 +1,4 @@
+
 local notificationFrame = Instance.new("Frame")
 notificationFrame.Size = UDim2.new(0, 200, 0, 100)
 notificationFrame.Position = UDim2.new(1, -220, 1, -120)
@@ -29,8 +30,15 @@ descriptionLabel.Text = "Bildirim Açıklaması"
 descriptionLabel.TextColor3 = Color3.new(1, 1, 1)
 descriptionLabel.Parent = notificationFrame
 
-wait(5)
 
-if not isClosed then
-    notificationFrame:Destroy()
+local function destroyNotification()
+    if not isClosed then
+        notificationFrame:Destroy()
+    end
 end
+
+
+spawn(function()
+    wait(5)
+    destroyNotification()
+end)
