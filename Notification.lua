@@ -30,15 +30,13 @@ descriptionLabel.Text = "Bildirim Açıklaması"
 descriptionLabel.TextColor3 = Color3.new(1, 1, 1)
 descriptionLabel.Parent = notificationFrame
 
+local startTime = tick()
+local duration = 5 
 
-local function destroyNotification()
-    if not isClosed then
-        notificationFrame:Destroy()
-    end
+repeat
+    wait(0.1) 
+until isClosed or tick() - startTime >= duration
+
+if not isClosed then
+    notificationFrame:Destroy()
 end
-
-
-spawn(function()
-    wait(5)
-    destroyNotification()
-end)
